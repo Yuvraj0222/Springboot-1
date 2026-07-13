@@ -23,8 +23,8 @@ public class DemoApplication {
 //		System.out.println(student.getName());
 //		System.out.println(student.getAge());
 
-		Orderservice orderservice = context.getBean(Orderservice.class);
-		orderservice.placeorder();
+//		Orderservice orderservice = context.getBean(Orderservice.class);
+//		orderservice.placeorder();
 	}
 }
 
