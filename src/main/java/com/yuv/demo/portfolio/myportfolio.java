@@ -19,4 +19,46 @@ public class myportfolio {
                 
                 """;
     }
+    @GetMapping("/Skill")
+    public String Skill(){
+        return """
+                <h2> Technical Skills</h2>
+                <ul>
+                <li> Java</li>
+                <li> mysql</li>
+                <li> DSA</li>
+                <li> Spring boot</li>
+                <li> Maven</li>
+                </ul>
+                
+                
+                
+                """;
+    }
+
+    @GetMapping("/education")
+    public String education(){
+        return """
+                <h2> Education</h2>
+                <ul>
+                <li> LPU</li>
+                <li> Saint James School</li>
+                
+                </ul>
+                
+                """;
+    }
+
+    @GetMapping("/project")
+    public String project() {
+        return """
+                <h2> Project</h2>
+                <ul>
+                <li> TB- Dectection ml model</li>
+                <li>Ai assitence</li>
+                
+                </ul>
+                
+                """;
+    }
 }
