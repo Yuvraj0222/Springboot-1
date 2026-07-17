@@ -1,8 +1,11 @@
-package com.yuv.demo.StudentServer;
 
+
+package com.yuv.demo.StudentServer.Service;
+
+import com.yuv.demo.StudentServer.Entity.Student;
+import com.yuv.demo.StudentServer.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.lang.*;
 
 @Service
 public class StudentService {
@@ -13,17 +16,23 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public Student studentValidate(Student student){
-        int id=student.getId();
-        String name=student.getName();
-        int age=student.getAge();
-        String department=student.getDepartment();
+    public Student studentValidate(Student student) {
 
-        if(id<0 || name==null || age<0 || department==null){
+        int id = student.getId();
+        String name = student.getName();
+        int age = student.getAge();
+        String department = student.getDepartment();
+
+        if(id < 0 || name == null || age < 0 || department == null) {
             return null;
         }
 
         studentRepository.save(student);
         return student;
+
+    }
+
+    public Student getStudentById(int id) {
+        return studentRepository.findById(id).orElse(null);
     }
 }

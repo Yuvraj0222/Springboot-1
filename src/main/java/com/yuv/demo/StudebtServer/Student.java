@@ -1,8 +1,7 @@
-package com.yuv.demo.StudentServer;
+package com.yuv.demo.StudentServer.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
 
 @Entity
 public class Student {
@@ -16,6 +15,10 @@ public class Student {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,12 +27,12 @@ public class Student {
         this.name = name;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getAge() {
         return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getDepartment() {
@@ -38,9 +41,5 @@ public class Student {
 
     public void setDepartment(String department) {
         this.department = department;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 }
