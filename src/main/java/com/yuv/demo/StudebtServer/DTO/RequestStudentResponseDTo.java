@@ -1,6 +1,4 @@
-package com.yuv.demo.StudebtServer.DTO;
-
-
+package com.yuv.demo.StudentServer.DTO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,3 +11,4 @@ public class CreateStudentResponseDTO {
     private int age;
     private String department;
 }
+

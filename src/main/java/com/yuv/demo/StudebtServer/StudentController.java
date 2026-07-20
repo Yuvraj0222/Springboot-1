@@ -1,9 +1,9 @@
 package com.mohit.demo.StudentServer.Controller;
 
-import com.yuv.demo.StudentServer.DTO.CreateStudentRequestDTO;
-import com.yuv.demo.StudentServer.DTO.CreateStudentResponseDTO;
-import com.yuv.demo.StudentServer.Entity.Student;
-import com.yuv.demo.StudentServer.Service.StudentService;
+import com.mohit.demo.StudentServer.DTO.CreateStudentRequestDTO;
+import com.mohit.demo.StudentServer.DTO.CreateStudentResponseDTO;
+import com.mohit.demo.StudentServer.Entity.Student;
+import com.mohit.demo.StudentServer.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
