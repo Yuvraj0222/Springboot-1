@@ -1,5 +1,7 @@
-package com.yuv.demo.StudentServer.Controller;
+package com.mohit.demo.StudentServer.Controller;
 
+import com.yuv.demo.StudentServer.DTO.CreateStudentRequestDTO;
+import com.yuv.demo.StudentServer.DTO.CreateStudentResponseDTO;
 import com.yuv.demo.StudentServer.Entity.Student;
 import com.yuv.demo.StudentServer.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,8 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> storeStudent(@RequestBody Student student) {
-        Student result = studentService.studentValidate(student);
+    public ResponseEntity<?> storeStudent(@RequestBody CreateStudentRequestDTO createStudentRequestDTO) {
+        CreateStudentResponseDTO result = studentService.studentValidate(createStudentRequestDTO);
 
         if(result == null)
         {
@@ -29,8 +31,32 @@ public class StudentController {
 
     @GetMapping("/getStudent/{id}")
     public ResponseEntity<?> getStudentById(@PathVariable int id){
+
         Student student = studentService.getStudentById(id);
-        return ResponseEntity.status(200).body(student);
+
+        if(student == null){
+            return ResponseEntity.status(404).body("Student not found");
+        }
+
+        return ResponseEntity.ok(student);
+    }
+
+    @PutMapping("/updateStudent/{id}")
+    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody Student student){
+        Student result = studentService.studentUpdate(id, student);
+        if(result == null)
+        {
+            return ResponseEntity.status(400).body("Invalid input");
+        }
+        return ResponseEntity.status(200).body(result);
+    }
+
+    @DeleteMapping("/deleteStudent/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable int id){
+        Student student = studentService.deleteStudent(id);
+        if(student == null) {
+            return ResponseEntity.status(400).body("Invalid input");
+        }
+        return ResponseEntity.status(200).body("Student deleted");
     }
 }
-
